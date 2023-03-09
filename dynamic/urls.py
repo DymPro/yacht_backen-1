@@ -20,11 +20,13 @@ from django.conf.urls.static import static
 from account import urls as account_urls
 from config import urls as config_urls
 from api import urls as api_urls
+from employee import urls as employee_urls
 
 urlpatterns = [
     path('api/account/', include(account_urls)),
     path('api/config/', include(config_urls)),
     path('api/', include(api_urls)),
+    path('api/employee/', include(employee_urls)),
     path('admin/', admin.site.urls),
 ]
 
