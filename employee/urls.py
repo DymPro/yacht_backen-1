@@ -10,4 +10,7 @@ urlpatterns = [
     path('personalinfo/<int:pk>', PersonalInfoAPI.as_view({
         'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
     })),
+    path('port/', PortView.as_view({
+        'get': 'list',
+    })),
 ]
