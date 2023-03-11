@@ -1,9 +1,10 @@
 from django.db import models
-
+from api.models  import PortData
 # Create your models here.
 
 
 class PersonalInformation(models.Model):
+    port = models.ForeignKey(PortData, on_delete=models.SET_NULL, null=True, blank=True, default=1)
     image = models.ImageField(upload_to='image/', blank=True, null=True)
     email = models.CharField(max_length=256)
     full_name = models.CharField(max_length=256)
@@ -39,3 +40,5 @@ class PersonalInformation(models.Model):
         upload_to='files/', blank=True, null=True)
     qualification_certificate = models.FileField(
         upload_to='files/', blank=True, null=True)
+    created_at = models.DateTimeField(auto_now=False,auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True,auto_now_add=False)
