@@ -27,6 +27,7 @@ class User(AbstractUser):
     gender = models.CharField( choices=GENDER,max_length=225, null=True, blank=True)
     pincode = models.IntegerField(null=True, blank=True)
     date_of_birth = models.DateField(null=True,blank=True)
+    is_hr = models.BooleanField(default=False)
 
 
     def __str__(self):

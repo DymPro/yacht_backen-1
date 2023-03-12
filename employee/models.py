@@ -1,10 +1,13 @@
 from django.db import models
 from api.models  import PortData
+from django.conf import settings
 # Create your models here.
-
+User = settings.AUTH_USER_MODEL
 
 class PersonalInformation(models.Model):
-    port = models.ForeignKey(PortData, on_delete=models.SET_NULL, null=True, blank=True, default=1)
+    user = models.OneToOneField(User,
+                             on_delete=models.CASCADE, null=True, blank=True,)
+    port = models.ForeignKey(PortData, on_delete=models.CASCADE, null=True, blank=True, default=1)
     image = models.ImageField(upload_to='image/', blank=True, null=True)
     email = models.CharField(max_length=256)
     full_name = models.CharField(max_length=256)

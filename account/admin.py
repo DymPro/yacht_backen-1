@@ -14,10 +14,11 @@ admin.site.site_title = 'NCPLISO'
 class CustomUserAdmin(UserAdmin):
     list_display = ['username','first_name','email','role']
     fieldsets = UserAdmin.fieldsets + (
-        (None, {'fields': ('role', 'device_token','gender','pincode','date_of_birth')}),
+        (None, {'fields': ('role', 'device_token','gender','pincode','date_of_birth','is_hr',)}),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
-        (None, {'fields': ('role',  'device_token','gender','pincode','date_of_birth')}),
+        (None, {'fields': ('role',  'device_token',
+         'gender', 'pincode', 'date_of_birth', 'is_hr',)}),
     )
 
 
