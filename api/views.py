@@ -31,9 +31,8 @@ class PortInformation(APIView):
         port_id = self.request.query_params.get('port_id',None)
         
         if get_structure is None:
-            if request.user.is_superuser == False or request.user.is_hr == False:
-                data = PortDataSerializer(PortData.objects.get(
-                id=request.user.personalinformation.port.id)).data
+            if (request.user.is_superuser == False or request.user.is_hr == False):
+                data = PortDataSerializer(PortData.objects.get(id=request.user.personalinformation.port.id)).data
             else:
                 data = PortDataSerializer(PortData.objects.all().exclude(delete=True).order_by('id'),many=True).data
         if port_id is not None:
