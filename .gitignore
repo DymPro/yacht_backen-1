@@ -1,6 +1,4 @@
 *.pyc
-*/migrations/*
 *.out
-*.sqlite3
 /static/
 /media/
