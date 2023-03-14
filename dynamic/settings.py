@@ -156,9 +156,3 @@ MEDIA_URL = '/media/'
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8100', 'http://localhost',
-]  # If this is used, then not need to use `CORS_ORIGIN_ALLOW_ALL = True`
-CORS_ORIGIN_REGEX_WHITELIST = [
-    'http://localhost:8100', 'http://localhost', '*'
-]
