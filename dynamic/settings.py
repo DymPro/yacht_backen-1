@@ -47,14 +47,16 @@ INSTALLED_APPS = [
     'employee',
 ]
 
-# CORS_ALLOWED_ORIGINS = [
-#     "https://www.ncpliso.com",
-#     "https://ncpliso.com",
-#     "http://www.ncpliso.com",
-#     "http://ncpliso.com",
-# ]
+CORS_ALLOWED_ORIGINS = [
+    "https://www.ncpliso.com",
+    "https://ncpliso.com",
+    "http://www.ncpliso.com",
+    "http://ncpliso.com",
+    "http://35.154.109.204",
+    "https://35.154.109.204"
+]
 
-CORS_ALLOW_ALL_ORIGINS: True
+# CORS_ALLOW_ALL_ORIGINS: True
 
 CORS_ALLOW_METHODS = [
     "DELETE",
