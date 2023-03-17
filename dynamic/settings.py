@@ -47,6 +47,40 @@ INSTALLED_APPS = [
     'employee',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "https://www.ncpliso.com",
+    "https://ncpliso.com",
+    "http://www.ncpliso.com",
+    "http://ncpliso.com",
+    "http://35.154.109.204",
+    "https://35.154.109.204",
+    "localhost:3000",
+    "http://localhost:3000/"
+]
+
+# CORS_ALLOW_ALL_ORIGINS: True
+
+# CORS_ALLOW_METHODS = [
+#     "DELETE",
+#     "GET",
+#     "OPTIONS",
+#     "PATCH",
+#     "POST",
+#     "PUT",
+# ]
+
+# CORS_ALLOW_HEADERS = [
+#     "accept",
+#     "accept-encoding",
+#     "authorization",
+#     "content-type",
+#     "dnt",
+#     "origin",
+#     "user-agent",
+#     "x-csrftoken",
+#     "x-requested-with",
+# ]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -57,7 +91,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    "corsheaders.middleware.CorsPostCsrfMiddleware",
 ]
+
 
 AUTH_USER_MODEL = 'account.User'
 ROOT_URLCONF = 'dynamic.urls'
@@ -156,5 +192,5 @@ MEDIA_URL = '/media/'
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = True
