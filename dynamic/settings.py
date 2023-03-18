@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'account',
     'config',
     'api',
-    'employee',
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -54,8 +53,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://ncpliso.com",
     "http://35.154.109.204",
     "https://35.154.109.204",
-    "localhost:3000",
-    "http://localhost:3000/"
+    "http://localhost:3000",
 ]
 
 # CORS_ALLOW_ALL_ORIGINS: True
@@ -142,18 +140,18 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    # },
 ]
 
 

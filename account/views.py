@@ -14,7 +14,7 @@ from rest_framework.authentication import TokenAuthentication, BasicAuthenticati
 import time
 from django.views.decorators.csrf import csrf_exempt
 from django.db import IntegrityError
-
+from rest_framework import viewsets
 
 class UserView(APIView):
     authentication_classes = [TokenAuthentication, ]
@@ -67,3 +67,7 @@ class LoginView(APIView):
             return Response({'success': True, 'message':  'lOGGED IN SUCESSFULLY', 'token': token.key, 'user': userData})
         else:
             return Response({'success': False, 'message': 'Username/password entered is wrong'})
+
+class RegisterView(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = RegisterSerializer

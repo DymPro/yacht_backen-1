@@ -1,18 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-
+from api.models import PortData
 # Create your models here.
 
 
 USER_ROLES = (
     ('superadmin', 'Super Admin'),
-    ('provider', 'Providers'),
-    ('manager', 'Manager'),
     ('staff', 'Staff'),
-    ('customer', 'Customer'),
-    ('affliator', 'Affliator'),
-    ('vendor', 'Vendor'),
-    ('delivery', 'Delivery'),
+    ('hr', 'HR'),
 )
 GENDER = (
     ('male', 'Male'),
@@ -22,10 +17,12 @@ GENDER = (
 
 class User(AbstractUser):
     role = models.CharField(max_length=25, choices=USER_ROLES,
-                            default='customer', null=True, blank=True)
+                            default='staff', null=True, blank=True)
     device_token = models.CharField(max_length=225, null=True, blank=True)
+    port = models.ForeignKey(PortData, on_delete=models.CASCADE, null=True, blank=True)
     gender = models.CharField( choices=GENDER,max_length=225, null=True, blank=True)
     pincode = models.IntegerField(null=True, blank=True)
+    phone = models.CharField(max_length=225, null=True, blank=True)
     date_of_birth = models.DateField(null=True,blank=True)
     is_hr = models.BooleanField(default=False)
 
