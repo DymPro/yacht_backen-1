@@ -7,7 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta():
         model = User
         # fields = "__all__"
-        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'role','gender','phone','pincode','date_of_birth', 'is_hr', 'is_superuser', 'port']
+        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'role','gender','phone','pincode','position', 'address', 'nationality','date_of_birth', 'is_hr', 'is_superuser', 'port']
 
 class RegisterSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(
@@ -22,7 +22,8 @@ class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('password', 'email', 'username',
-                  'role', 'date_of_birth', 'gender', 'port', 'id','first_name', 'last_name',)
+                  'role', 'date_of_birth', 'gender', 'port', 'id','first_name', 'last_name', 'phone',
+                  'position', 'address', 'nationality')
 
     def create(self, validated_data):
         user = User.objects.create(
@@ -33,8 +34,11 @@ class RegisterSerializer(serializers.ModelSerializer):
             gender = validated_data['gender'],
             port = validated_data['port'],
             first_name = validated_data['first_name'],
-            last_name = validated_data['lastname'],
+            last_name = validated_data['last_name'],
             phone = validated_data['phone'],
+            position = validated_data['position'],
+            nationality = validated_data['nationality'],
+            address = validated_data['address'],
         )
 
         user.set_password(validated_data['password'])

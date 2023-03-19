@@ -17,4 +17,7 @@ urlpatterns = [
     path('employee/port/', PortView.as_view({
         'get': 'list',
     })),
+    path('employee/add/', EmployeeAPIView.as_view({
+        'post': 'create'
+        })),
 ]
