@@ -13,6 +13,11 @@ class EmployeeDataSerializer(serializers.ModelSerializer):
         model = EmployeeData
         fields = "__all__"
 
+class EmployeeDataRegisterSerializer(serializers.ModelSerializer):
+    class Meta():
+        model = EmployeeData
+        fields = "__all__"
+
 class ImageSerializer(serializers.ModelSerializer):
     class Meta():
         model = Image

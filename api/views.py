@@ -26,6 +26,10 @@ class EmployeeView(viewsets.ModelViewSet):
     queryset = EmployeeData.objects.filter(is_delete = False)
     serializer_class = EmployeeDataSerializer
 
+class EmployeeAPIView(viewsets.ModelViewSet):
+    queryset = EmployeeData.objects.filter(is_delete = False)
+    serializer_class = EmployeeDataRegisterSerializer
+
 
 class PortView(viewsets.ModelViewSet):
     queryset = PortData.objects.all()

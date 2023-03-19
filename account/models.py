@@ -23,6 +23,9 @@ class User(AbstractUser):
     gender = models.CharField( choices=GENDER,max_length=225, null=True, blank=True)
     pincode = models.IntegerField(null=True, blank=True)
     phone = models.CharField(max_length=225, null=True, blank=True)
+    position = models.CharField(max_length=225, null=True, blank=True)
+    nationality = models.CharField(max_length=225, null=True, blank=True)
+    address = models.CharField(max_length=225, null=True, blank=True)
     date_of_birth = models.DateField(null=True,blank=True)
     is_hr = models.BooleanField(default=False)
 
