@@ -1,3 +1,4 @@
 *.pyc
 *.out
 
+db.sqlite3

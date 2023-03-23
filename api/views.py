@@ -170,3 +170,23 @@ class DocumentView(APIView):
             return Response({'success': False, 'message': 'Unauthorized ,Please Login','code':401})
         document = Document.objects.create(files=request.FILES.get('document'))
         return Response(save_msg(DocumentSerializer(document).data))
+    
+class LeaveAPIView(viewsets.ModelViewSet):
+    queryset = Leave.objects.all()
+    serializer_class = LeaveSerializer
+
+class LeaveDataAPIView(viewsets.ModelViewSet):
+    queryset = Leave.objects.all()
+    serializer_class = LeaveDataSerializer
+
+class LeavePolicyAPIView(viewsets.ModelViewSet):
+    queryset = LeavePolicy.objects.all()
+    serializer_class = LeavePolicySerializer
+
+class SpecialLeaveAPIView(viewsets.ModelViewSet):
+    queryset = SpecialLeave.objects.all()
+    serializer_class = SpecialLeaveSerializer
+
+class CompanyLeavePolicyAPIView(viewsets.ModelViewSet):
+    queryset = CompanyLeavePolicy.objects.all()
+    serializer_class = CompanyLeavePolicySerializer
