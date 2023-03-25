@@ -105,6 +105,7 @@ class CompanyLeavePolicy(models.Model):
         upload_to='files/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
+    port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
 
 class SpecialLeave(models.Model):
     employee = models.ForeignKey(User, on_delete=models.CASCADE)
