@@ -3,7 +3,6 @@ from .models import *
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
 
-
 class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Department
@@ -62,3 +61,17 @@ class RegisterSerializer(serializers.ModelSerializer):
 
         return user
 
+class ChangePasswordSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
+
+    class Meta:
+        model = User
+        fields = ('password',)
+
+
+    def update(self, instance, validated_data):
+
+        instance.set_password(validated_data['password'])
+        instance.save()
+
+        return instance
