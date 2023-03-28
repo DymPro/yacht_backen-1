@@ -7,8 +7,14 @@ urlpatterns = [
     # path('employee/',EmployeeView.as_view()),
     path('image/', ImageView.as_view()),
     path('document/', DocumentAPIView.as_view({
+<<<<<<< HEAD
+        'get': 'list',
+        'post': 'create'
+    })),
+=======
 'get':'list', 'post':'create'
 })),
+>>>>>>> 6984e7e05350154c0a13e402d654411a0324fe67
     path('employee/personalinfo/', EmployeeView.as_view({
         'get': 'list',
         'post': 'create'

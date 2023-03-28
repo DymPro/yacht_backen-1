@@ -15,6 +15,20 @@ GENDER = (
     ('other', 'Other'),
 )
 
+
+
+class Department(models.Model):
+    title = models.CharField(max_length=256, null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.title}'
+
+class Position(models.Model):
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, null=True, blank=True)
+    title = models.CharField(max_length=256, null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.title}'
 class User(AbstractUser):
     role = models.CharField(max_length=25, choices=USER_ROLES,
                             default='staff', null=True, blank=True)
@@ -23,7 +37,8 @@ class User(AbstractUser):
     gender = models.CharField( choices=GENDER,max_length=225, null=True, blank=True)
     pincode = models.IntegerField(null=True, blank=True)
     phone = models.CharField(max_length=225, null=True, blank=True)
-    position = models.CharField(max_length=225, null=True, blank=True)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, null=True, blank=True)
+    position = models.ForeignKey(Position, on_delete=models.CASCADE, null=True, blank=True)
     nationality = models.CharField(max_length=225, null=True, blank=True)
     address = models.CharField(max_length=225, null=True, blank=True)
     date_of_birth = models.DateField(null=True,blank=True)

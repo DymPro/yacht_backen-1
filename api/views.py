@@ -191,9 +191,15 @@ class CompanyLeavePolicyAPIView(viewsets.ModelViewSet):
     queryset = CompanyLeavePolicy.objects.all()
     serializer_class = CompanyLeavePolicySerializer
 
+<<<<<<< HEAD
+class DocumentAPIView(viewsets.ModelViewSet):
+    queryset = Document.objects.all()
+    serializer_class = DocumentSerializer
+=======
 
 class DocumentAPIView(viewsets.ModelViewSet):
 
     queryset = Document.objects.all()
 
     serializer_class = DocumentSerializer
+>>>>>>> 6984e7e05350154c0a13e402d654411a0324fe67
