@@ -3,11 +3,26 @@ from .models import *
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
 
+
+class DepartmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Department
+        fields = "__all__"
+
+class PositionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Position
+        fields = "__all__"
+
 class UserSerializer(serializers.ModelSerializer):
+    department =  DepartmentSerializer(read_only=True)
+    position =   PositionSerializer(read_only=True)
     class Meta():
         model = User
         # fields = "__all__"
-        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'role','gender','phone','pincode','position', 'address', 'nationality','date_of_birth', 'is_hr', 'is_superuser', 'port']
+        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'role','gender','phone','pincode','position', 'department', 'address', 'nationality','date_of_birth', 'is_hr', 'is_superuser', 'port']
+
+
 
 class RegisterSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(
@@ -23,7 +38,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         model = User
         fields = ('password', 'email', 'username',
                   'role', 'date_of_birth', 'gender', 'port', 'id','first_name', 'last_name', 'phone',
-                  'position', 'address', 'nationality')
+                  'position', 'address', 'nationality', 'department')
 
     def create(self, validated_data):
         user = User.objects.create(
@@ -36,6 +51,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             first_name = validated_data['first_name'],
             last_name = validated_data['last_name'],
             phone = validated_data['phone'],
+            department = validated_data['department'],
             position = validated_data['position'],
             nationality = validated_data['nationality'],
             address = validated_data['address'],
@@ -45,3 +61,4 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+

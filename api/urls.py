@@ -6,7 +6,10 @@ urlpatterns = [
     path('portInformation/', PortInformation.as_view()),
     # path('employee/',EmployeeView.as_view()),
     path('image/', ImageView.as_view()),
-    path('document/', DocumentView.as_view()),
+    path('document/', DocumentAPIView.as_view({
+        'get': 'list',
+        'post': 'create'
+    })),
     path('employee/personalinfo/', EmployeeView.as_view({
         'get': 'list',
         'post': 'create'
