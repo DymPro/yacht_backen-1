@@ -155,11 +155,9 @@ class ImageView(APIView):
 
 class DocumentView(APIView):
 
-    authentication_classes = [TokenAuthentication, ]
-    permission_classes = (IsAuthenticated,)
 
     def get(self,request,format=None):
-        if request.user.is_anonymous:
+        irequest.user.is_anonymous:
             return Response({'success': False, 'message': 'Unauthorized ,Please Login','code':401})
         document_id = self.request.query_params.get("document_id",None)
         data = DocumentSerializer(Document.objects.get(id=document_id)).data
@@ -190,16 +188,3 @@ class SpecialLeaveAPIView(viewsets.ModelViewSet):
 class CompanyLeavePolicyAPIView(viewsets.ModelViewSet):
     queryset = CompanyLeavePolicy.objects.all()
     serializer_class = CompanyLeavePolicySerializer
-
-<<<<<<< HEAD
-class DocumentAPIView(viewsets.ModelViewSet):
-    queryset = Document.objects.all()
-    serializer_class = DocumentSerializer
-=======
-
-class DocumentAPIView(viewsets.ModelViewSet):
-
-    queryset = Document.objects.all()
-
-    serializer_class = DocumentSerializer
->>>>>>> 6984e7e05350154c0a13e402d654411a0324fe67
