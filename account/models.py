@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from api.models import PortData
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from api.models import EmployeeData
 # Create your models here.
 
 
@@ -41,9 +44,20 @@ class User(AbstractUser):
     position = models.ForeignKey(Position, on_delete=models.CASCADE, null=True, blank=True)
     nationality = models.CharField(max_length=225, null=True, blank=True)
     address = models.CharField(max_length=225, null=True, blank=True)
+    date_of_hire = models.DateField(null=True,blank=True)
     date_of_birth = models.DateField(null=True,blank=True)
+    level_of_authourity = models.CharField(max_length=256, null=True, blank=True)
     is_hr = models.BooleanField(default=False)
-
 
     def __str__(self):
         return f'{self.first_name} {self.username}'
+
+@receiver(post_save, sender=User)
+def create_employee(sender, instance, created, **kwargs):
+    if created:
+        EmployeeData.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_employee(sender, instance, **kwargs):
+    instance.employeedata.save()

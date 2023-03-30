@@ -27,6 +27,9 @@ class EmployeeData(models.Model):
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
 
+    def __str__(self):
+        return str(self.user)
+
 
 class Image(models.Model):
     image = models.ImageField(upload_to='image/', blank=True, null=True)
