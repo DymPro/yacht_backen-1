@@ -3,7 +3,6 @@ from django.contrib.auth.models import AbstractUser
 from api.models import PortData
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from api.models import EmployeeData
 # Create your models here.
 
 

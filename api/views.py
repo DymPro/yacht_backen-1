@@ -195,3 +195,26 @@ class DocumentAPIView(viewsets.ModelViewSet):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
 
+class CompanyManualAPIView(viewsets.ModelViewSet):
+    queryset = CompanyManual.objects.all()
+    serializer_class = CompanyManualSerializer
+
+class CompanyPolicyAPIView(viewsets.ModelViewSet):
+    queryset = CompanyPolicy.objects.all()
+    serializer_class = CompanyPolicySerializer
+
+class CompanyProcedureAPIView(viewsets.ModelViewSet):
+    queryset = CompanyProcedure.objects.all()
+    serializer_class = CompanyProcedureSerializer
+
+class IMSFormAPIView(viewsets.ModelViewSet):
+    queryset = IMSForm.objects.all()
+    serializer_class = IMSFormSerializer
+
+class DepartmentalProcedureAPIView(viewsets.ModelViewSet):
+    queryset = DepartmentalProcedure.objects.all()
+    serializer_class = DepartmentalProcedureSerializer
+
+class CompanyIMSFormAPIView(viewsets.ModelViewSet):
+    queryset = CompanyIMSForm.objects.all()
+    serializer_class = CompanyIMSFormSerializer
