@@ -16,13 +16,13 @@ class CustomUserAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
         (None, {'fields': ('role', 'device_token','gender',
             'pincode','date_of_birth','is_hr','port', 'phone', 
-            'position','department', 'address', 'nationality', 
-            'level_of_authourity', 'date_of_hire')}),
+            'position','department', 'nationality', 
+            'level_of_authourity',)}),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
         (None, {'fields': ('role',  'device_token',
          'gender', 'pincode', 'date_of_birth', 'is_hr','port', 
-         'phone', 'position','department', 'address', 'nationality', 'level_of_authourity', 'date_of_hire')}),
+         'phone', 'position','department',  'nationality', 'level_of_authourity',)}),
     )
 
 

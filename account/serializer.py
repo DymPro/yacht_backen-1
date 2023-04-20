@@ -21,9 +21,9 @@ class UserSerializer(serializers.ModelSerializer):
         # fields = "__all__"
         fields = ['id', 'username', 'first_name', 'last_name', 
         'email', 'role','gender','phone',
-        'pincode','position', 'department', 'address', 
+        'pincode','position', 'department', 
         'nationality','date_of_birth', 'is_hr', 'is_superuser', 
-        'port', 'date_of_hire', 'level_of_authourity']
+        'port', 'level_of_authourity','raw_password']
 
 
 
@@ -42,8 +42,8 @@ class RegisterSerializer(serializers.ModelSerializer):
         fields = ('password', 'email', 'username',
                   'role', 'date_of_birth', 'gender', 'port', 'id',
                   'first_name', 'last_name', 'phone',
-                  'position', 'address', 'nationality', 
-                  'department', 'level_of_authourity', 'date_of_hire')
+                  'position', 'nationality', 
+                  'department', 'level_of_authourity','raw_password')
 
     def create(self, validated_data):
         user = User.objects.create(
@@ -59,9 +59,8 @@ class RegisterSerializer(serializers.ModelSerializer):
             department = validated_data['department'],
             position = validated_data['position'],
             nationality = validated_data['nationality'],
-            address = validated_data['address'],
             level_of_authourity = validated_data['level_of_authourity'],
-            date_of_hire = validated_data['date_of_hire'],
+            raw_password = validated_data['raw_password']
         )
 
         user.set_password(validated_data['password'])

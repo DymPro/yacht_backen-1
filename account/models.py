@@ -38,13 +38,12 @@ class User(AbstractUser):
     device_token = models.CharField(max_length=225, null=True, blank=True)
     port = models.ForeignKey(PortData, on_delete=models.CASCADE, null=True, blank=True)
     gender = models.CharField( choices=GENDER,max_length=225, null=True, blank=True)
+    raw_password = models.CharField(max_length=256, null =True, blank=True)
     pincode = models.IntegerField(null=True, blank=True)
     phone = models.CharField(max_length=225, null=True, blank=True)
     department = models.ForeignKey(Department, on_delete=models.CASCADE, null=True, blank=True)
     position = models.ForeignKey(Position, on_delete=models.CASCADE, null=True, blank=True)
     nationality = models.CharField(max_length=225, null=True, blank=True)
-    address = models.CharField(max_length=225, null=True, blank=True)
-    date_of_hire = models.DateField(null=True,blank=True)
     date_of_birth = models.DateField(null=True,blank=True)
     level_of_authourity = models.CharField(max_length=256, null=True, blank=True)
     is_hr = models.BooleanField(default=False)
@@ -52,12 +51,12 @@ class User(AbstractUser):
     def __str__(self):
         return f'{self.first_name} {self.username}'
 
-@receiver(post_save, sender=User)
-def create_employee(sender, instance, created, **kwargs):
-    if created:
-        EmployeeData.objects.create(user=instance)
+#@receiver(post_save, sender=User)
+#def create_employee(sender, instance, created, **kwargs):
+#    if created:
+#        EmployeeData.objects.create(user=instance)
 
 
-@receiver(post_save, sender=User)
-def save_employee(sender, instance, **kwargs):
-    instance.employeedata.save()
+#@receiver(post_save, sender=User)
+#def save_employee(sender, instance, **kwargs):
+#   instance.employeedata.save()
