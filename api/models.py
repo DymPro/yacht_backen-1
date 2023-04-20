@@ -86,4 +86,51 @@ class Leave(models.Model):
 
     def __str__(self):
         return self.employee.username
-    
+
+class CompanyIMSForm(models.Model):
+    title = models.CharField(max_length=265, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
+    port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
+
+class CompanyManual(models.Model):
+    company_manual = models.FileField(
+        upload_to='files/', blank=True, null=True)
+    created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
+    port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
+
+class CompanyPolicy(models.Model):
+    company_policy = models.FileField(
+        upload_to='files/', blank=True, null=True)
+    created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
+    port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
+
+class CompanyProcedure(models.Model):
+    procedure_name = models.CharField(max_length=265, null=True, blank=True)
+    procedure = models.FileField(upload_to='files/', blank=True, null=True)
+    user = models.ManyToManyField(User)
+    created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
+    port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
+
+class IMSForm(models.Model):
+    company_ims = models.ForeignKey(CompanyIMSForm, on_delete=models.CASCADE)
+    ims_form = models.FileField(upload_to='files/', blank=True, null=True)
+    user = models.ManyToManyField(User)
+    created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
+    port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
+    created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
+
+class DepartmentalProcedure(models.Model):
+    procedure_name = models.CharField(max_length=265, null=True, blank=True)
+    procedure = models.FileField(upload_to='files/', blank=True, null=True)
+
+    user = models.ManyToManyField(User)
+    created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
+    port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
+

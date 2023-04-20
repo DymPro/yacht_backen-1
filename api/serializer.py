@@ -62,3 +62,33 @@ class CompanyLeavePolicySerializer(serializers.ModelSerializer):
     class Meta:
         model = CompanyLeavePolicy
         fields = "__all__"
+
+class CompanyManualSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CompanyManual
+        fields = "__all__"
+
+class CompanyPolicySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CompanyPolicy
+        fields = "__all__"
+
+class CompanyIMSFormSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CompanyIMSForm
+        fields = "__all__"
+
+class CompanyProcedureSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CompanyProcedure
+        fields = "__all__"
+
+class IMSFormSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = IMSForm
+        fields = "__all__"
+
+class DepartmentalProcedureSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DepartmentalProcedure
+        fields = "__all__"
