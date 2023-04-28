@@ -5,12 +5,6 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 # Create your models here.
 
-
-USER_ROLES = (
-    ('superadmin', 'Super Admin'),
-    ('staff', 'Staff'),
-    ('hr', 'HR'),
-)
 GENDER = (
     ('male', 'Male'),
     ('female', 'Female'),
@@ -32,7 +26,8 @@ class Position(models.Model):
     def __str__(self):
         return f'{self.title}'
 class User(AbstractUser):
-    role = models.CharField(max_length=25, default='staff', null=True, blank=True)
+    role = models.CharField(max_length=25, choices=USER_ROLES,
+                            default='staff', null=True, blank=True)
     device_token = models.CharField(max_length=225, null=True, blank=True)
     port = models.ForeignKey(PortData, on_delete=models.CASCADE, null=True, blank=True)
     gender = models.CharField( choices=GENDER,max_length=225, null=True, blank=True)

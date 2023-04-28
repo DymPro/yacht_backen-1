@@ -101,6 +101,8 @@ class CompanyManual(models.Model):
     port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
 
 class CompanyPolicy(models.Model):
+    data = models.JSONField(null=True, blank=True)
+    name = models.CharField(max_length=256, null=True, blank=True)
     company_policy = models.FileField(
         upload_to='files/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)

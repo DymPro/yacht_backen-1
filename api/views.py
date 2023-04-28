@@ -218,3 +218,9 @@ class DepartmentalProcedureAPIView(viewsets.ModelViewSet):
 class CompanyIMSFormAPIView(viewsets.ModelViewSet):
     queryset = CompanyIMSForm.objects.all()
     serializer_class = CompanyIMSFormSerializer
+
+class DepartmentalProcedureListAPIView(viewsets.ModelViewSet):
+
+    queryset = DepartmentalProcedure.objects.all()
+
+    serializer_class = DepartmentalProcedureList

@@ -55,11 +55,11 @@ urlpatterns = [
     path('company-manual/<int:pk>', CompanyManualAPIView.as_view({
         'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
     })),
-    path('company-policy/add', CompanyPolicyAPIView.as_view({
+    path('company-policy-form/add', CompanyPolicyAPIView.as_view({
         'get': 'list',
         'post': 'create'
     })),
-    path('company-policy/<int:pk>', CompanyPolicyAPIView.as_view({
+    path('company-policy-form/<int:pk>', CompanyPolicyAPIView.as_view({
         'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
     })),
     path('company-procedure/add', CompanyProcedureAPIView.as_view({
@@ -90,6 +90,13 @@ urlpatterns = [
     path('manage-ims/<int:pk>', CompanyIMSFormAPIView.as_view({
         'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
     })),
-    
+   path('departmental-procedure/list', DepartmentalProcedureListAPIView.as_view({
+        'get': 'list',
+    })),
 
+    path('departmental-procedure/list/<int:pk>', DepartmentalProcedureListAPIView.as_view({
+
+        'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
+
+         })),
 ]

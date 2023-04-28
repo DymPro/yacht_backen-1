@@ -92,3 +92,9 @@ class DepartmentalProcedureSerializer(serializers.ModelSerializer):
     class Meta:
         model = DepartmentalProcedure
         fields = "__all__"
+
+class DepartmentalProcedureList(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+    class Meta:
+        model = DepartmentalProcedure
+        fields = "__all__"
