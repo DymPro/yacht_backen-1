@@ -1,3 +1,4 @@
+
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from django.conf import settings
@@ -88,10 +89,14 @@ class Leave(models.Model):
         return self.employee.username
 
 class CompanyIMSForm(models.Model):
+    position = models.IntegerField(default=0)
     title = models.CharField(max_length=265, null=True, blank=True)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
     port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
+
+    class Meta:
+        ordering = ['position', '-updated_at' ]
 
 class CompanyManual(models.Model):
     company_manual = models.FileField(
@@ -101,6 +106,7 @@ class CompanyManual(models.Model):
     port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
 
 class CompanyPolicy(models.Model):
+    position = models.IntegerField(default=0)
     data = models.JSONField(null=True, blank=True)
     name = models.CharField(max_length=256, null=True, blank=True)
     company_policy = models.FileField(
@@ -109,30 +115,48 @@ class CompanyPolicy(models.Model):
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
     port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
 
+    class Meta:
+        ordering = ['position', '-updated_at' ]
+
+
 class CompanyProcedure(models.Model):
+    position = models.IntegerField(default=0)
     procedure_name = models.CharField(max_length=265, null=True, blank=True)
     procedure = models.FileField(upload_to='files/', blank=True, null=True)
     user = models.ManyToManyField(User)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
     port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
+
+    class Meta:
+        ordering = ['position','-updated_at' ]
+
 
 class IMSForm(models.Model):
-    company_ims = models.ForeignKey(CompanyIMSForm, on_delete=models.CASCADE)
+    position = models.IntegerField(default=0)
+    form_name = models.CharField(max_length=256, blank=True, null=True)
     ims_form = models.FileField(upload_to='files/', blank=True, null=True)
-    user = models.ManyToManyField(User)
+    user_access = models.CharField(max_length=512, null=True, blank=True)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
     port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
 
+    class Meta:
+        ordering = ['position', '-updated_at' ]
+
+
 class DepartmentalProcedure(models.Model):
+    position = models.IntegerField(default=0)
     procedure_name = models.CharField(max_length=265, null=True, blank=True)
     procedure = models.FileField(upload_to='files/', blank=True, null=True)
 
-    user = models.ManyToManyField(User)
+    user_access = models.CharField(max_length=512, null=True, blank=True)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
     port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
 
+
+    class Meta:
+        ordering = ['position', '-updated_at' ]
