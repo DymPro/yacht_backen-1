@@ -2,7 +2,6 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from django.conf import settings
-import Department from account.models
 User = settings.AUTH_USER_MODEL
 # Create your models here.
 
@@ -153,7 +152,7 @@ class IMSForm(models.Model):
 
 class DepartmentalProcedure(models.Model):
     position = models.IntegerField(default=0)
-    department = models.ForeignKey(Department, on_delete=models.CASCADE,null=True, blank=True )
+    department = models.ForeignKey("account.Department", on_delete=models.CASCADE,null=True, blank=True )
     procedure_name = models.CharField(max_length=265, null=True, blank=True)
     procedure = models.FileField(upload_to='files/', blank=True, null=True)
     active = models.BooleanField(default=False)
@@ -169,7 +168,7 @@ class DepartmentalProcedure(models.Model):
         
 class DepartmentalForm(models.Model):
     position = models.IntegerField(default=0)
-    department = models.ForeignKey(Department, on_delete=models.CASCADE,null=True, blank=True )
+    department = models.ForeignKey("account.Department", on_delete=models.CASCADE,null=True, blank=True )
     form_name = models.CharField(max_length=265, null=True, blank=True)
     form = models.FileField(upload_to='files/', blank=True, null=True)
     active = models.BooleanField(default=False)
