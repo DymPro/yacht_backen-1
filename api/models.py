@@ -102,6 +102,7 @@ class CompanyManual(models.Model):
     company_manual = models.FileField(
         upload_to='files/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+    active = models,BooleanField(default=False)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
     port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
 
@@ -119,11 +120,12 @@ class CompanyPolicy(models.Model):
         ordering = ['position', '-updated_at' ]
 
 
-class CompanyProcedure(models.Model):
+class IMSProcedure(models.Model):
     position = models.IntegerField(default=0)
     procedure_name = models.CharField(max_length=265, null=True, blank=True)
     procedure = models.FileField(upload_to='files/', blank=True, null=True)
-    user = models.ManyToManyField(User)
+    user_access = models.CharField(max_length=512, null=True, blank=True)
+    active = models,BooleanField(default=False)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
     port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
@@ -137,8 +139,7 @@ class IMSForm(models.Model):
     form_name = models.CharField(max_length=256, blank=True, null=True)
     ims_form = models.FileField(upload_to='files/', blank=True, null=True)
     user_access = models.CharField(max_length=512, null=True, blank=True)
-    created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
+    active = models,BooleanField(default=False)
     port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
@@ -149,9 +150,26 @@ class IMSForm(models.Model):
 
 class DepartmentalProcedure(models.Model):
     position = models.IntegerField(default=0)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE,null=True, blank=True )
     procedure_name = models.CharField(max_length=265, null=True, blank=True)
     procedure = models.FileField(upload_to='files/', blank=True, null=True)
+    active = models,BooleanField(default=False)
+    user_access = models.CharField(max_length=512, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
+    port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
 
+
+    class Meta:
+        ordering = ['position', '-updated_at' ]
+        
+        
+class DepartmentalForm(models.Model):
+    position = models.IntegerField(default=0)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE,null=True, blank=True )
+    form_name = models.CharField(max_length=265, null=True, blank=True)
+    form = models.FileField(upload_to='files/', blank=True, null=True)
+    active = models,BooleanField(default=False)
     user_access = models.CharField(max_length=512, null=True, blank=True)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
