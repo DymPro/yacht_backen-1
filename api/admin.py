@@ -5,5 +5,5 @@ from .models import *
 admin.site.register([PortData,EmployeeData,Image,Document, Leave, 
                      LeavePolicy, SpecialLeave, CompanyLeavePolicy, 
                      CompanyIMSForm, CompanyManual, CompanyPolicy,
-                     CompanyProcedure, IMSForm, DepartmentalProcedure
+                     IMSProcedure, IMSForm, DepartmentalProcedure, DepartmentalForm
                      ])
