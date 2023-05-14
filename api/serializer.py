@@ -78,9 +78,9 @@ class CompanyIMSFormSerializer(serializers.ModelSerializer):
         model = CompanyIMSForm
         fields = "__all__"
 
-class CompanyProcedureSerializer(serializers.ModelSerializer):
+class IMSProcedureSerializer(serializers.ModelSerializer):
     class Meta:
-        model = CompanyProcedure
+        model = IMSProcedure
         fields = "__all__"
 
 class IMSFormSerializer(serializers.ModelSerializer):
@@ -93,8 +93,8 @@ class DepartmentalProcedureSerializer(serializers.ModelSerializer):
         model = DepartmentalProcedure
         fields = "__all__"
 
-class DepartmentalProcedureList(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
+class DepartmentalFormSerializer(serializers.ModelSerializer):
     class Meta:
-        model = DepartmentalProcedure
+        model = DepartmentalForm
         fields = "__all__"
+
