@@ -62,7 +62,7 @@ urlpatterns = [
     path('company-policy-form/<int:pk>', CompanyPolicyAPIView.as_view({
         'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
     })),
-    path('company-procedure/add', IMScedureAPIView.as_view({
+    path('company-procedure/add', IMSProcedureAPIView.as_view({
         'get': 'list',
         'post': 'create'
     })),
