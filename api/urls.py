@@ -62,11 +62,11 @@ urlpatterns = [
     path('company-policy-form/<int:pk>', CompanyPolicyAPIView.as_view({
         'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
     })),
-    path('company-procedure/add', CompanyProcedureAPIView.as_view({
+    path('company-procedure/add', IMScedureAPIView.as_view({
         'get': 'list',
         'post': 'create'
     })),
-    path('company-procedure/<int:pk>', CompanyProcedureAPIView.as_view({
+    path('company-procedure/<int:pk>', IMSProcedureAPIView.as_view({
         'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
     })),
     path('ims-form/add', IMSFormAPIView.as_view({
@@ -83,6 +83,13 @@ urlpatterns = [
     path('departmental-procedure/<int:pk>', DepartmentalProcedureAPIView.as_view({
         'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
          })),
+    path('departmental-form/add', DepartmentalFormAPIView.as_view({
+        'get': 'list',
+        'post': 'create'
+    })),
+    path('departmental-form/<int:pk>', DepartmentalFormAPIView.as_view({
+        'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
+         })),
     path('manage-ims/add', CompanyIMSFormAPIView.as_view({
         'get': 'list',
         'post': 'create'
@@ -90,13 +97,5 @@ urlpatterns = [
     path('manage-ims/<int:pk>', CompanyIMSFormAPIView.as_view({
         'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
     })),
-   path('departmental-procedure/list', DepartmentalProcedureListAPIView.as_view({
-        'get': 'list',
-    })),
 
-    path('departmental-procedure/list/<int:pk>', DepartmentalProcedureListAPIView.as_view({
-
-        'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
-
-         })),
 ]
