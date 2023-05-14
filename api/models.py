@@ -2,6 +2,7 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from django.conf import settings
+from account.models import Department
 User = settings.AUTH_USER_MODEL
 # Create your models here.
 
