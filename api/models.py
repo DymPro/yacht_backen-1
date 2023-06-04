@@ -145,8 +145,6 @@ class IMSProcedure(models.Model):
 class IMSForm(models.Model):
     position = models.IntegerField(default=0)
     form_name = models.CharField(max_length=256, blank=True, null=True)
-    ims_form = models.FileField(upload_to='files/', blank=True, null=True)
-    user_access = models.CharField(max_length=512, null=True, blank=True)
     active = models.BooleanField(default=False)
     port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
@@ -176,7 +174,6 @@ class DepartmentalForm(models.Model):
     position = models.IntegerField(default=0)
     department = models.ForeignKey("account.Department", on_delete=models.CASCADE,null=True, blank=True )
     form_name = models.CharField(max_length=265, null=True, blank=True)
-    form = models.FileField(upload_to='files/', blank=True, null=True)
     active = models.BooleanField(default=False)
     user_access = models.CharField(max_length=512, null=True, blank=True)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
