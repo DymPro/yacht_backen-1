@@ -1,5 +1,4 @@
 
-
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from django.conf import settings
@@ -110,14 +109,17 @@ class CompanyManual(models.Model):
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
     port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
 
-    class Meta:
-        ordering = ['position', '-updated_at']
+
+
 
 class CompanyPolicy(models.Model):
+class Meta:
     position = models.IntegerField(default=0)
+ordering = ['position', '-updated_at' ]
     data = models.JSONField(null=True, blank=True)
+class Meta:
     name = models.CharField(max_length=256, null=True, blank=True)
-    active = models.BooleanField(default=False)
+ordering = ['position', '-updated_at' ]    active = models.BooleanField(default=False)
     company_policy = models.FileField(
         upload_to='files/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
