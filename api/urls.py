@@ -97,5 +97,39 @@ urlpatterns = [
     path('manage-ims/<int:pk>', CompanyIMSFormAPIView.as_view({
         'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
     })),
-
+    path('ims-formdata/', IMSFormDataAPIView.as_view({
+        'get': 'list',
+        'post': 'create'
+    })),
+    path('ims-formdata/<int:pk>', IMSFormDataAPIView.as_view({
+        'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
+    })),
+     path('departmental-formdata/', DepartmentalFormDataAPIView.as_view({
+        'get': 'list',
+        'post': 'create'
+    })),
+    path('departmental-formdata/<int:pk>', DepartmentalFormDataAPIView.as_view({
+        'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
+    })),
+    path('location', LocationAPIView.as_view({
+        'get': 'list',
+        'post': 'create'
+    })),
+    path('location/<int:pk>', LocationAPIView.as_view({
+        'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
+    })),
+        path('report-type', ReportTypeAPIView.as_view({
+        'get': 'list',
+        'post': 'create'
+    })),
+    path('report-type/<int:pk>', ReportTypeAPIView.as_view({
+        'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
+    })),
+        path('submit-to', SubmitToAPIView.as_view({
+        'get': 'list',
+        'post': 'create'
+    })),
+    path('submit-to/<int:pk>', SubmitToAPIView.as_view({
+        'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
+    })),
 ]
