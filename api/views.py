@@ -223,3 +223,22 @@ class CompanyIMSFormAPIView(viewsets.ModelViewSet):
     queryset = CompanyIMSForm.objects.all()
     serializer_class = CompanyIMSFormSerializer
 
+class IMSFormDataAPIView(viewsets.ModelViewSet):
+    queryset = IMSFormData.objects.all()
+    serializer_class = IMSFormDataSerializer
+
+class DepartmentalFormDataAPIView(viewsets.ModelViewSet):
+    queryset = DepartmentalFormData.objects.all()
+    serializer_class = DepartmentalFormDataSerializer
+
+class LocationAPIView(viewsets.ModelViewSet):
+    queryset = Location.objects.all()
+    serializer_class = LocationSerializer
+
+class ReportTypeAPIView(viewsets.ModelViewSet):
+    queryset = ReportType.objects.all()
+    serializer_class = ReportTypeSerializer
+
+class SubmitToAPIView(viewsets.ModelViewSet):
+    queryset = SubmitTo.objects.all()
+    serializer_class = SubmitToSerializer

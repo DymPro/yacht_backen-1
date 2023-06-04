@@ -183,3 +183,52 @@ class DepartmentalForm(models.Model):
 
     class Meta:
         ordering = ['position', '-updated_at' ]
+
+class IMSFormData(models.Model):
+    employee = models.ForeignKey(User, on_delete=models.CASCADE)
+    form = models.ForeignKey(IMSForm, on_delete=models.CASCADE,null=True, blank=True )
+    data = models.JSONField(null=True, blank=True)
+    active = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
+    port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
+
+    def __str__(self):
+        return self.employee.username
+    
+class DepartmentalFormData(models.Model):
+    employee = models.ForeignKey(User, on_delete=models.CASCADE)
+    form = models.ForeignKey(DepartmentalForm, on_delete=models.CASCADE,null=True, blank=True )
+    data = models.JSONField(null=True, blank=True)
+    active = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
+    port = models.ForeignKey(PortData, on_delete=models.CASCADE,null=True, blank=True )
+
+    def __str__(self):
+        return self.employee.username
+
+
+class Location(models.Model):
+    name = models.CharField(max_length=256, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)    
+
+    def __str__(self):
+        return self.name
+    
+class ReportType(models.Model):
+    name = models.CharField(max_length=256, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)    
+
+    def __str__(self):
+        return self.name
+    
+class SubmitTo(models.Model):
+    name = models.CharField(max_length=256, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)    
+
+    def __str__(self):
+        return self.name

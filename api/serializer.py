@@ -98,3 +98,27 @@ class DepartmentalFormSerializer(serializers.ModelSerializer):
         model = DepartmentalForm
         fields = "__all__"
 
+class IMSFormDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = IMSFormData
+        fields = "__all__"
+
+class DepartmentalFormDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DepartmentalFormData
+        fields = "__all__"
+
+class LocationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Location
+        fields = "__all__"
+
+class ReportTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ReportType
+        fields = "__all__"
+
+class SubmitToSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SubmitTo
+        fields = "__all__"
