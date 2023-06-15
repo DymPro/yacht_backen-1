@@ -47,17 +47,6 @@ INSTALLED_APPS = [
     'api',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "https://www.ncpliso.com",
-    "https://ncpliso.com",
-    "http://www.ncpliso.com",
-    "http://ncpliso.com",
-    "http://35.154.109.204",
-    "https://35.154.109.204",
-    "http://localhost:3000",
-]
-
-CORS_ORIGIN_ALLOW_ALL = True
 
 # CORS_ALLOW_METHODS = [
 #     "DELETE",
@@ -81,6 +70,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 # ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -88,7 +78,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     "corsheaders.middleware.CorsPostCsrfMiddleware",
 ]
@@ -188,8 +177,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # SECURE_SSL_REDIRECT = True
