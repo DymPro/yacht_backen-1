@@ -26,22 +26,12 @@ INSTALLED_APPS = [
 ]
 
 
-# CORS_ALLOW_METHODS = [
-#     "DELETE",
-#     "GET",
-#     "OPTIONS",
-#     "PATCH",
-#     "POST",
-#     "PUT",
-# ]
 
-
-
-MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',    
+MIDDLEWARE = [   
     "corsheaders.middleware.CorsPostCsrfMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware', 
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -109,8 +99,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-
-
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -120,58 +108,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+CORS_ORIGIN_ALLOW_ALL = True
 
-
-# CORS_ALLOW_HEADERS = (
-#     "accept",
-#     "authorization",
-#     "content-type",
-#     "user-agent",
-#     "x-csrftoken",
-#     "x-requested-with",
-# )
-
-CORS_ALLOWED_ORIGINS = [
-    "https://www.ncpliso.com",
-    "https://ncpliso.com",
-    "http://www.ncpliso.com",
-    "http://ncpliso.com",
-    "http://35.154.109.204",
-    "https://35.154.109.204",
-    "http://localhost:3000",
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://www.ncpliso.com",
-    "https://ncpliso.com",
-    "http://www.ncpliso.com",
-    "http://ncpliso.com",
-    "http://localhost:3000",
-
-]
-
-CORS_ALLOW_CREDENTIALS = True
-
-# CORS_ALLOW_ALL_ORIGINS = True
-# CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ALLOW_CREDENTIALS = True
-# CORS_ALLOW_ALL_HEADERS=True
-
-CSRF_COOKIE_NAME = "csrftoken"
-
-# CSRF_TRUSTED_ORIGINS = [
-#   "https://www.ncpliso.com",
-#     "https://ncpliso.com",
-#     "https://www.ncpliso.com/",
-#     "https://ncpliso.com/",
-#     "http://www.ncpliso.com",
-#     "http://ncpliso.com",
-#     "http://www.ncpliso.com/",
-#     "http://ncpliso.com/",
-#     "http://localhost:3000",
-#     "http://localhost:8000",
-# ]
-
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-# SECURE_SSL_REDIRECT = True
 
