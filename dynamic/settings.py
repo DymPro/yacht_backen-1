@@ -19,7 +19,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-   
     'rest_framework.authtoken',
     'account',
     'config',
@@ -48,7 +47,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.common.CommonMiddleware',
 
 ]
 
@@ -123,30 +121,32 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
-# CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_HEADERS = (
-    "accept",
-    "authorization",
-    "content-type",
-    "user-agent",
-    "x-csrftoken",
-    "x-requested-with",
-)
 
-CORS_ORIGIN_WHITELIST = [
-    "https://www.ncpliso.com",
-    "https://ncpliso.com",
-    "http://www.ncpliso.com",
-    "http://ncpliso.com",
-    "http://35.154.109.204",
-    "https://35.154.109.204",
-    "http://localhost:3000",
-]
+# CORS_ALLOW_HEADERS = (
+#     "accept",
+#     "authorization",
+#     "content-type",
+#     "user-agent",
+#     "x-csrftoken",
+#     "x-requested-with",
+# )
+
+# CORS_ORIGIN_WHITELIST = [
+#     "https://www.ncpliso.com",
+#     "https://ncpliso.com",
+#     "http://www.ncpliso.com",
+#     "http://ncpliso.com",
+#     "http://35.154.109.204",
+#     "https://35.154.109.204",
+#     "http://localhost:3000",
+# ]
 
 
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_HEADERS=True
 
-# CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ALLOW_CREDENTIALS = True
 
 # CSRF_TRUSTED_ORIGINS = [
 #   "https://www.ncpliso.com",
