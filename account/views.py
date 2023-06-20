@@ -50,7 +50,7 @@ class UserView(APIView):
 
 
 class LoginView(APIView):
-    authentication_classes = [BasicAuthentication, ]
+    # authentication_classes = [BasicAuthentication, ]
 
     def post(self, request, format='json'):
         data = request.data
