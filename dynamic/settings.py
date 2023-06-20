@@ -49,7 +49,6 @@ INSTALLED_APPS = [
 # ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -57,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     "corsheaders.middleware.CorsPostCsrfMiddleware",
 ]
@@ -137,33 +137,29 @@ MEDIA_URL = '/media/'
 CORS_ALLOWED_ORIGINS = [
     "https://www.ncpliso.com",
     "https://ncpliso.com",
-    "https://www.ncpliso.com/",
-    "https://ncpliso.com/",
     "http://www.ncpliso.com",
     "http://ncpliso.com",
-    "http://www.ncpliso.com/",
-    "http://ncpliso.com/",
+    "http://35.154.109.204",
+    "https://35.154.109.204",
     "http://localhost:3000",
-    "http://localhost:8000",
-
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-  "https://www.ncpliso.com",
-    "https://ncpliso.com",
-    "https://www.ncpliso.com/",
-    "https://ncpliso.com/",
-    "http://www.ncpliso.com",
-    "http://ncpliso.com",
-    "http://www.ncpliso.com/",
-    "http://ncpliso.com/",
-    "http://localhost:3000",
-    "http://localhost:8000",
-]
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
+# CSRF_TRUSTED_ORIGINS = [
+#   "https://www.ncpliso.com",
+#     "https://ncpliso.com",
+#     "https://www.ncpliso.com/",
+#     "https://ncpliso.com/",
+#     "http://www.ncpliso.com",
+#     "http://ncpliso.com",
+#     "http://www.ncpliso.com/",
+#     "http://ncpliso.com/",
+#     "http://localhost:3000",
+#     "http://localhost:8000",
+# ]
 
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # SECURE_SSL_REDIRECT = True
 
-PASSWORD_HASHER =[
-"plaintext_password.PlaintextPasswordHasher"
-]
