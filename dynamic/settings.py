@@ -131,22 +131,33 @@ MEDIA_URL = '/media/'
 #     "x-requested-with",
 # )
 
-# CORS_ORIGIN_WHITELIST = [
-#     "https://www.ncpliso.com",
-#     "https://ncpliso.com",
-#     "http://www.ncpliso.com",
-#     "http://ncpliso.com",
-#     "http://35.154.109.204",
-#     "https://35.154.109.204",
-#     "http://localhost:3000",
-# ]
+CORS_ALLOWED_ORIGINS = [
+    "https://www.ncpliso.com",
+    "https://ncpliso.com",
+    "http://www.ncpliso.com",
+    "http://ncpliso.com",
+    "http://35.154.109.204",
+    "https://35.154.109.204",
+    "http://localhost:3000",
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://www.ncpliso.com",
+    "https://ncpliso.com",
+    "http://www.ncpliso.com",
+    "http://ncpliso.com",
+    "http://localhost:3000",
 
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ORIGIN_ALLOW_ALL = True
+]
+
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_ALL_HEADERS=True
 
+# CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_ALL_HEADERS=True
+
+CSRF_COOKIE_NAME = "csrftoken"
 
 # CSRF_TRUSTED_ORIGINS = [
 #   "https://www.ncpliso.com",
