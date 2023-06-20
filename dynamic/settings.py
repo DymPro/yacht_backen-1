@@ -36,17 +36,7 @@ INSTALLED_APPS = [
 #     "PUT",
 # ]
 
-CORS_ALLOW_HEADERS = [
-    "accept",
-    "accept-encoding",
-    "authorization",
-    "content-type",
-    "dnt",
-    "origin",
-    "user-agent",
-    "x-csrftoken",
-    "x-requested-with",
-]
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',    
@@ -134,6 +124,14 @@ MEDIA_URL = '/media/'
 
 
 # CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_HEADERS = (
+    "accept",
+    "authorization",
+    "content-type",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+)
 
 CORS_ORIGIN_WHITELIST = [
     "https://www.ncpliso.com",
@@ -145,8 +143,10 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
+
+
+# CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOW_CREDENTIALS = True
 
 # CSRF_TRUSTED_ORIGINS = [
 #   "https://www.ncpliso.com",
