@@ -108,6 +108,12 @@ class DepartmentalFormDataSerializer(serializers.ModelSerializer):
         model = DepartmentalFormData
         fields = "__all__"
 
+class DepartmentalFormDataViewSerializer(serializers.ModelSerializer):
+    employee = UserSerializer(read_only=True)
+    class Meta:
+        model = DepartmentalFormData
+        fields = "__all__"
+
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location

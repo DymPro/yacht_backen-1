@@ -231,6 +231,10 @@ class DepartmentalFormDataAPIView(viewsets.ModelViewSet):
     queryset = DepartmentalFormData.objects.all()
     serializer_class = DepartmentalFormDataSerializer
 
+class DepartmentalFormDataViewAPIView(viewsets.ModelViewSet):
+    queryset = DepartmentalFormData.objects.all()
+    serializer_class = DepartmentalFormDataViewSerializer
+
 class LocationAPIView(viewsets.ModelViewSet):
     queryset = Location.objects.all()
     serializer_class = LocationSerializer
