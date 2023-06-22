@@ -25,10 +25,7 @@ INSTALLED_APPS = [
     'api',
 ]
 
-
-
 MIDDLEWARE = [   
-    "corsheaders.middleware.CorsPostCsrfMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware', 
@@ -37,9 +34,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
 ]
-
 
 AUTH_USER_MODEL = 'account.User'
 ROOT_URLCONF = 'dynamic.urls'
@@ -109,5 +104,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+    'https://ncpliso.com',
+    'https://www.ncpliso.com',
+    'http://ncpliso.com',
+    'http://www.ncpliso.com',
+
+]
 
 
