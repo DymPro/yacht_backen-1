@@ -112,6 +112,11 @@ urlpatterns = [
          path('departmental-formdata-get/', DepartmentalFormDataViewAPIView.as_view({
         'get': 'list',
     })),
+
+             path('departmental-formdata-get/<int:pk>', DepartmentalFormDataViewAPIView.as_view({
+        
+         'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
+    })),
     path('departmental-formdata/<int:pk>', DepartmentalFormDataAPIView.as_view({
         'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
     })),
