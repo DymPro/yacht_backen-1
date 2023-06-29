@@ -141,4 +141,11 @@ urlpatterns = [
     path('submit-to/<int:pk>', SubmitToAPIView.as_view({
         'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
     })),
+     path('event-summary', EventSummaryAPIView.as_view({
+        'get': 'list',
+        'post': 'create'
+    })),
+    path('event-summary/<int:pk>', EventSummaryAPIView.as_view({
+        'get': 'retrieve', 'patch': 'partial_update', 'delete': 'destroy', 'put': 'update'
+    })),
 ]

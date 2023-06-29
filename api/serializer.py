@@ -128,3 +128,8 @@ class SubmitToSerializer(serializers.ModelSerializer):
     class Meta:
         model = SubmitTo
         fields = "__all__"
+
+class EventSummarySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EventSummary
+        fields = "__all__"

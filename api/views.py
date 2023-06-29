@@ -246,3 +246,7 @@ class ReportTypeAPIView(viewsets.ModelViewSet):
 class SubmitToAPIView(viewsets.ModelViewSet):
     queryset = SubmitTo.objects.all()
     serializer_class = SubmitToSerializer
+
+class EventSummaryAPIView(viewsets.ModelViewSet):
+    queryset = EventSummary.objects.all()
+    serializer_class = EventSummarySerializer

@@ -6,4 +6,5 @@ admin.site.register([PortData,EmployeeData,Image,Document, Leave,
                      CompanyIMSForm, CompanyManual, CompanyPolicy,
                      IMSProcedure, IMSForm, DepartmentalProcedure, DepartmentalForm,
                         IMSFormData, DepartmentalFormData, Location, ReportType, SubmitTo,
+                        EventSummary,
                      ])
