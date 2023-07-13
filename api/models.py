@@ -195,6 +195,8 @@ class IMSFormData(models.Model):
 
     def __str__(self):
         return self.employee.username
+    class Meta:
+        ordering = ['-updated_at' ]
     
 class DepartmentalFormData(models.Model):
     employee = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -213,6 +215,9 @@ class DepartmentalFormData(models.Model):
 
     def __str__(self):
         return self.employee.username
+
+    class Meta:
+        ordering = ['-updated_at' ]
 
 
 class Location(models.Model):
@@ -246,3 +251,4 @@ class EventSummary(models.Model):
 
     def __str__(self):
         return self.name
+
